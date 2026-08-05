@@ -5,6 +5,8 @@ template **5294**, 12-up) for Woodmill grab-and-go items. The client enters an i
 name, optional ingredients, and a product number, then downloads a **PDF** (or PNG).
 No server, no database — everything runs in the browser.
 
+**Live:** https://based-chase-94.github.io/woodmill-label-maker/
+
 ## Using it
 
 1. Enter **Item name**, **Ingredients** (optional), and **Product number**.
@@ -43,14 +45,34 @@ table for the client's known numbers.
 
 ## Build & deploy
 
+Deployed to **GitHub Pages** at https://based-chase-94.github.io/woodmill-label-maker/
+via the `based-chase-94` account. Deployment is automatic: the workflow in
+`.github/workflows/deploy.yml` builds the site and publishes it on every push to
+`main`. To ship a change:
+
+```bash
+git add -A && git commit -m "your change" && git push
+```
+
+Then watch it go live (~1 min):
+
+```bash
+gh run watch --exit-status
+```
+
+To build/preview locally without deploying:
+
 ```bash
 npm run build    # outputs static site to dist/
 npm run preview  # serve the built site locally to check it
 ```
 
-Deploy the `dist/` folder to any static host (Netlify, Vercel, Cloudflare Pages,
-GitHub Pages). No backend or environment variables required. `vite.config.js` uses a
-relative base, so it works from a root domain or a subfolder.
+No backend or environment variables required. `vite.config.js` uses a relative base,
+so the site works from the Pages subpath (or any other host/subfolder).
+
+> One-time setup note: GitHub Pages had to be enabled once for the repo with the
+> source set to "GitHub Actions" (Settings → Pages), because the workflow token can't
+> create the Pages site on a brand-new repo. It's done; future pushes just work.
 
 ## Tuning the layout
 
