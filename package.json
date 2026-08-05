@@ -1,0 +1,19 @@
+{
+  "name": "woodmill-label-maker",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Client-side PDF/PNG label generator for Woodmill grab-and-go items (2.5\" Avery 5294 round labels)",
+  "scripts": {
+    "dev": "chmod +x node_modules/@esbuild/*/bin/esbuild 2>/dev/null; node node_modules/vite/bin/vite.js",
+    "build": "chmod +x node_modules/@esbuild/*/bin/esbuild 2>/dev/null; node node_modules/vite/bin/vite.js build",
+    "preview": "node node_modules/vite/bin/vite.js preview"
+  },
+  "dependencies": {
+    "bwip-js": "^4.5.1",
+    "pdf-lib": "^1.17.1"
+  },
+  "devDependencies": {
+    "vite": "^7.1.5"
+  }
+}

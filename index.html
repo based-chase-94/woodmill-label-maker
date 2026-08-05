@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Woodmill Label Maker</title>
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Woodmill Label Maker</h1>
+      <p class="sub">2.5&quot; round labels &middot; Avery 5294</p>
+    </header>
+
+    <main class="layout">
+      <section class="panel form" aria-label="Label details">
+        <label class="field">
+          <span>Item name</span>
+          <textarea id="itemName" rows="2" placeholder="Chopped Farmer Salad" autocomplete="off">Chopped Farmer Salad</textarea>
+          <span class="fieldhint">Press Enter to force a line break.</span>
+        </label>
+
+        <label class="field">
+          <span>Ingredients <em>(optional)</em></span>
+          <textarea id="ingredients" rows="3" placeholder="Spinach, roasted chickpeas, butternut squash, spiced pumpkin seeds, dried cherries, avocado">Spinach, roasted chickpeas, butternut squash, spiced pumpkin seeds, dried cherries, avocado</textarea>
+        </label>
+
+        <label class="field">
+          <span>Product number</span>
+          <input id="productNumber" type="text" inputmode="numeric" placeholder="38151613" value="38151613" autocomplete="off" />
+        </label>
+
+        <details class="advanced">
+          <summary>Advanced</summary>
+          <div class="advanced-body">
+            <label class="field slider-field">
+              <span>Title size: <strong id="titleScaleVal">Auto</strong></span>
+              <input id="titleScale" type="range" min="60" max="140" step="2" value="100" />
+            </label>
+            <label class="field slider-field">
+              <span>Space above title: <strong id="titleTopVal">None</strong></span>
+              <input id="titleTop" type="range" min="0" max="12" step="1" value="0" />
+            </label>
+            <button id="titleReset" type="button" class="btn btn-small">Reset title adjustments</button>
+            <p class="fieldhint">Resize the title for names that auto-size awkwardly, and add space above it so short one-line titles sit lower. The title always stays inside the label.</p>
+          </div>
+        </details>
+
+        <div class="sym">
+          <span id="symBadge" class="badge badge-empty">No barcode</span>
+          <p id="symNote" class="note"></p>
+        </div>
+
+        <div class="actions">
+          <button id="downloadPdf" type="button" class="btn btn-primary" disabled>Download PDF</button>
+          <button id="downloadPng" type="button" class="btn" disabled>Download PNG</button>
+        </div>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+        <p class="hint">The PDF prints at true 2.5&quot;. Upload either file into Avery Design &amp; Print; it tiles the single label across the 12-up sheet.</p>
+      </section>
+
+      <section class="panel preview-wrap" aria-label="Label preview">
+        <div class="preview-stage">
+          <canvas id="preview" width="1500" height="1500"></canvas>
+        </div>
+        <p class="preview-caption">Live preview</p>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
